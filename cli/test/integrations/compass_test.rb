@@ -46,7 +46,7 @@ class CompassTest < Test::Unit::TestCase
   def test_empty_project
     # With no sass files, we should have no css files.
     within_project(:empty) do |proj|
-      return unless proj.css_path && File.exists?(proj.css_path)
+      return unless proj.css_path && File.exist?(proj.css_path)
       Dir.new(proj.css_path).each do |f|
         fail "This file should not have been generated: #{f}" unless f == "." || f == ".."
       end
